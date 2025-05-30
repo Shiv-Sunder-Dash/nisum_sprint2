@@ -1,0 +1,13 @@
+com\nisum\assignment2\scopebeans\AppScopeBean.class
+com\nisum\assignment2\controller\CrudController.class
+com\nisum\assignment2\scopebeans\PrototypeBean.class
+com\nisum\assignment2\config\AppConfig.class
+com\nisum\assignment2\service\StudentService.class
+com\nisum\assignment2\repository\StudentDAOImpl.class
+com\nisum\assignment2\scopebeans\SessionBean.class
+com\nisum\assignment2\controller\ScopeController.class
+com\nisum\assignment2\controller\RestApiController.class
+com\nisum\assignment2\repository\StudentDAO.class
+com\nisum\assignment2\scopebeans\SingletonBean.class
+com\nisum\assignment2\scopebeans\RequestBean.class
+com\nisum\assignment2\model\Student.class

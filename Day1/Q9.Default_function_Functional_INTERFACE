@@ -1,0 +1,5 @@
+A functional interface must have exactly one abstract method, but it can have:
+
+Any number of default methods
+
+Any number of static methods
