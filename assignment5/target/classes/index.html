@@ -10,6 +10,12 @@
 <script>
     const apiUrl = "http://localhost:8081/assignment5/api/todo";
     var appName = "TodoApp";
+    const exampleTodo = {
+        name: "Dummy Task",
+        completed: false,
+        priority: "low"
+    };
+    console.log("Example Object:", exampleTodo);
 
     function fetchTodos() {
         fetch(apiUrl)
@@ -49,5 +55,4 @@
 </script>
 </body>
 </html>
-
 
