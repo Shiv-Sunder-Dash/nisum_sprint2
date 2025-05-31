@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head><title>Todo JS (REST)</title></head>
+<body>
+<h2>Todo List</h2>
+<input id="taskInput" type="text" placeholder="Enter task" />
+<button onclick="addTask()">Add</button>
+<ul id="todoList"></ul>
+
+<script>
+    const apiUrl = "http://localhost:8081/assignment5/api/todo";
+    var appName = "TodoApp";
+
+    function fetchTodos() {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(todos => {
+                const ul = document.getElementById("todoList");
+                ul.innerHTML = "";
+                todos.forEach((t, i) => {
+                    let li = document.createElement("li");
+                    li.innerHTML = `${t} <button onclick="deleteTask(${i})">Delete</button>`;
+                    ul.appendChild(li);
+                });
+            });
+    }
+
+    function addTask() {
+        let task = document.getElementById("taskInput").value;
+        if (task.trim() === "") return;
+
+        fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain" },
+            body: task
+        }).then(() => {
+            document.getElementById("taskInput").value = "";
+            fetchTodos();
+        });
+    }
+
+    function deleteTask(index) {
+        fetch(`${apiUrl}/${index}`, {
+            method: "DELETE"
+        }).then(() => fetchTodos());
+    }
+
+    fetchTodos();
+</script>
+</body>
+</html>
+
+
