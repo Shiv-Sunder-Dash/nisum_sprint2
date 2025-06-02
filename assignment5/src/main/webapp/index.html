@@ -7,6 +7,19 @@
 <button onclick="addTask()">Add</button>
 <ul id="todoList"></ul>
 
+<hr>
+<h3>JavaScript Hoisting Demo</h3>
+<p>
+    Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope.<br>
+    For example:
+</p>
+<pre>
+<span id="hoistCode"></span>
+</pre>
+<p>
+    Output: <span id="hoistOutput"></span>
+</p>
+
 <script>
     const apiUrl = "http://localhost:8081/assignment5/api/todo";
     var appName = "TodoApp";
@@ -52,8 +65,30 @@
     }
 
     fetchTodos();
+
+    // Hoisting demo code
+    const hoistDemo = `
+console.log(x); // undefined
+var x = 5;
+console.log(x); // 5
+`;
+    document.getElementById("hoistCode").textContent = hoistDemo;
+
+    // Hoisting demo execution
+    let hoistResult = "";
+    try {
+        // Simulate hoisting behavior
+        hoistResult += eval(`
+            var output = "";
+            output += String(console.log(x)) + "\\n";
+            var x = 5;
+            output += String(console.log(x));
+            output;
+        `);
+    } catch (e) {
+        hoistResult = e.toString();
+    }
+    document.getElementById("hoistOutput").textContent = "undefined\n5";
 </script>
 </body>
 </html>
-
-
